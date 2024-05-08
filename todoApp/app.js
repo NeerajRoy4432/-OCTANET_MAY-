@@ -2,8 +2,10 @@ const modal = document.getElementById("popup-form");
 const btn = document.getElementById("open-button");
 const span = document.getElementById("close-button");
 const submitBtn = document.getElementById("btn_submit");
+const card = document.getElementById("card_container");
 const inputFiled = document.getElementsByTagName("input");
 let todo = [];
+
 btn.onclick = function () {
   modal.style.display = "block";
 };
@@ -12,28 +14,49 @@ span.onclick = function () {
   modal.style.display = "none";
 };
 
-Array.from(inputFiled).forEach((inputItem, index) => {
-  // Do something with each input field
-  inputItem.addEventListener("change", (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-    console.log(e.target.name);
-    inputItem = "";
-    let INputValue = { [e.target.name]: e.target.value };
-    console.log(INputValue);
-  });
-});
+const CardList = () => {
+  card.innerHTML = ""; // Clear the card container before adding new cards
+  todo.forEach((todoData) => {
+    let html = `
+    <div class="card">
+            <div class="content" style="background:${todoData.bgcColor}">
+              <a href="#">
+                <span class="title" style="background: ${todoData.bgcColor}">
+                  ${todoData.title}
+                </span>
+              </a>
 
-submitBtn.onclick = function (e) {
-  console.log(e.target);
-  e.preventDefault();
-  getInputValue();
-  modal.style.display = "none";
+              <p class="desc" style="background: ${todoData.bgcColor}">
+              ${todoData.description}
+              </p>
+
+              <a class="action" href="#">
+                Find out more
+                <span aria-hidden="true"> → </span>
+              </a>
+            </div>
+          </div>
+    `;
+    card.innerHTML += html;
+  });
 };
 
-inputFiled.onchange = function (e) {
-  console.log(e.target.value);
-  console.log(e.target.name);
+submitBtn.onclick = function (e) {
+  e.preventDefault();
+  let todoData = {
+    id: null,
+    title: "",
+    description: "",
+    bgcColor: "whitesmoke",
+  };
+  Array.from(inputFiled).forEach((inputItem, index) => {
+    todoData = { ...todoData, [inputItem.name]: inputItem.value };
+  });
+  console.log(todoData);
+  todo.push(todoData);
+  console.log(todoData);
+  CardList();
+  modal.style.display = "none";
 };
 
 window.onclick = function (event) {
