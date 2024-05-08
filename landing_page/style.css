@@ -56,15 +56,9 @@
 
 .main_info p {
   color: #5c5c5c;
-  margin: 0.8rem 0;
-
+  margin: 1rem 0;
   font-weight: 500;
 }
-
-/* .hero_img {
-  padding: 1rem;
-  border: 1px solid #ccc;
-} */
 
 .hero_img img {
   width: 30rem;
@@ -198,8 +192,8 @@ button:active {
   }
 
   .card {
-    width: 17 rem;
-    height: 17 rem;
+    width: 17rem;
+    height: 17rem;
   }
 
   .card_info h2 {
