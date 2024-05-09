@@ -162,10 +162,26 @@
   background-color: whitesmoke;
   cursor: pointer;
   transition: all 0.5s ease;
-  width: 18rem;
-  height: 100%;
+  width: 16rem;
+  height: 15.5rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   word-break: break-all;
+  position: relative;
+  text-transform: capitalize;
+
+  input {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+
+  #delete {
+    background-color: whitesmoke;
+    font-size: 2rem;
+    text-decoration: none;
+    position: absolute;
+    bottom: 1rem;
+  }
 }
 
 .content:hover {
@@ -174,17 +190,19 @@
 
 .title {
   color: #111827;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1.3rem;
+  line-height: 1rem;
   font-weight: 600;
   background-color: whitesmoke;
+  text-transform: uppercase;
 }
 
 .desc {
   margin-top: 0.5rem;
-  color: #6b7280;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  color: rgb(170, 164, 164);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4rem;
   background-color: whitesmoke;
 }
 
