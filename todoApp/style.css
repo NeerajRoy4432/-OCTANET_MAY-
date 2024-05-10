@@ -16,10 +16,6 @@
   h1 {
     font-size: 3rem;
     text-transform: uppercase;
-    /* position: absolute; */
-    /* top: 30%; */
-    /* left: 50%; */
-    /* transform: translate(-50%); */
     margin-top: 1rem;
     text-align: center;
     font-weight: 800;
@@ -67,6 +63,7 @@
   #btn_submit {
     position: absolute;
     right: 1rem;
+    bottom: 2rem;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
@@ -149,10 +146,11 @@
 /* ================= todo card css ===================== */
 
 #card_container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
   margin: 5rem auto;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
   gap: 2rem;
 }
 
@@ -162,6 +160,7 @@
   background-color: whitesmoke;
   cursor: pointer;
   transition: all 0.5s ease;
+  margin: 1rem auto;
   width: 16rem;
   height: 15.5rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -218,4 +217,72 @@
   background-color: #2563eb;
   padding: 4px 8px;
   border-radius: 4px;
+}
+
+/* ================= media query ===================== */
+
+@media (max-width: 992px) {
+  .container {
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+    }
+  }
+
+  #open-button {
+    font-size: 1.2rem;
+
+    i {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* --------------------------- */
+
+@media (max-width: 768px) {
+  .content {
+    width: auto;
+  }
+
+  #open-button {
+    position: absolute;
+    right: 2rem;
+    top: 3rem;
+    padding: 0.55rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .modal-content {
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+  }
+}
+
+/* --------------------------------- */
+
+@media (max-width: 576px) {
+  .modal-content {
+    margin: auto;
+    padding: 15px;
+    width: 90%;
+    height: 90%;
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    #close-button {
+      font-size: 1.2rem;
+      color: blue;
+    }
+
+    #btn_submit {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.1rem;
+    }
+  }
 }
