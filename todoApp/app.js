@@ -8,6 +8,13 @@ let todo = [];
 
 // ========================================================
 
+//  calling the function to retrieve the data form
+//  localStorage after page reload
+getTodoData();
+CardList();
+
+// ========================================================
+
 const randomIdGenerator = () => {
   // random id generator function
   let RandomNumber = Math.round(Math.random() * 1000);
@@ -15,8 +22,14 @@ const randomIdGenerator = () => {
 };
 
 // ========================================================
+function getTodoData() {
+  let data = localStorage.getItem("todo");
+  todo = data ? JSON.parse(data) : [];
+}
 
-const CardList = () => {
+// ========================================================
+
+function CardList() {
   card.innerHTML = ""; // Clear the card container before adding new cards
   todo.forEach((todoData) => {
     let html = `
@@ -59,7 +72,7 @@ const CardList = () => {
     `;
     card.innerHTML += html;
   });
-};
+}
 
 // ========================================================
 
@@ -69,6 +82,7 @@ const updateTodoData = (id, checkbox) => {
   const todoItem = todo.find((item) => item.id === id);
   if (todoItem) {
     todoItem.todoCheck = checkboxValue;
+    localStorage.setItem("todo", JSON.stringify(todo));
   }
   CardList();
 };
@@ -82,6 +96,7 @@ const deleteTodoData = (id) => {
     todo.forEach((item) => {
       if (item.id === todoItem.id) {
         todo.splice(todo.indexOf(item), 1);
+        localStorage.setItem("todo", JSON.stringify(todo));
       }
     });
   }
@@ -107,6 +122,7 @@ myForm.onsubmit = (e) => {
   });
 
   todo.push({ ...todoData, todoCheck: false });
+  if (todo.length > 0) localStorage.setItem("todo", JSON.stringify(todo));
 
   CardList();
   modal.style.display = "none"; // close input field box after submit
