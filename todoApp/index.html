@@ -29,7 +29,7 @@
       <!-- this is our pop up form to get data form user -->
 
       <div id="popup-form" class="modal">
-        <form class="modal-content">
+        <form id="myForm" class="modal-content">
           <i id="close-button" class="close fa-solid fa-xmark"></i>
           <h2>TODO LIST</h2>
           <div class="form_box">
@@ -39,9 +39,7 @@
               id="title"
               name="title"
               required
-              title="Minimum 2 word, maximum 15 words"
-              maxlength="15"
-              minlength="2"
+              autocomplete="off"
             />
 
             <label for="description">Description</label>
@@ -50,13 +48,25 @@
               id="description"
               name="description"
               required
-              title="Minimum 5 word, maximum 150 words"
-              maxlength="150"
-              minlength="5"
+              autocomplete="off"
             />
 
-            <label for="bgcColor">Select your favorite color:</label>
-            <input type="color" id="bgcColor" name="bgcColor" value="#F5F5F5" />
+            <div class="colorPalette">
+              <label for="bgcColor">Select Your Bg color:</label>
+              <input
+                type="color"
+                id="bgcColor"
+                name="bgcColor"
+                value="#F5F5F5"
+              />
+              <label for="txcColor">Select Your Text color:</label>
+              <input
+                type="color"
+                id="txcColor"
+                name="txcColor"
+                value="#000"
+              />
+            </div>
           </div>
           <input id="btn_submit" type="submit" />
         </form>

@@ -1,9 +1,9 @@
 const modal = document.getElementById("popup-form");
 const btn = document.getElementById("open-button");
 const span = document.getElementById("close-button");
-const submitBtn = document.getElementById("btn_submit");
 const card = document.getElementById("card_container");
 const inputFiled = document.getElementsByTagName("input");
+const myForm = document.getElementById("myForm");
 let todo = [];
 
 // ========================================================
@@ -35,12 +35,16 @@ const CardList = () => {
           />
           
               <a>
-                <span class="title" style="background: ${todoData.bgcColor}">
+                <span class="title" style="background: ${
+                  todoData.bgcColor
+                }; color: ${todoData.txcColor}">
                   ${todoData.title}
                 </span>
               </a>
 
-              <p class="desc" style="background: ${todoData.bgcColor}">
+              <p class="desc" style="background: ${todoData.bgcColor}; color: ${
+      todoData.txcColor
+    }">
               ${todoData.description}
               </p>
               
@@ -86,7 +90,7 @@ const deleteTodoData = (id) => {
 
 // ========================================================
 
-submitBtn.onclick = (e) => {
+myForm.onsubmit = (e) => {
   e.preventDefault();
   let todoData = {
     // predefined values todo inputs
@@ -94,6 +98,7 @@ submitBtn.onclick = (e) => {
     title: "",
     description: "",
     bgcColor: "whitesmoke",
+    txcColor: "black",
     todoCheck: false,
   };
   Array.from(inputFiled).forEach((inputItem, index) => {

@@ -97,6 +97,10 @@
   #bgcColor {
     padding: 0rem;
   }
+
+  #txcColor {
+    padding: 0rem;
+  }
 }
 
 .close {
@@ -161,7 +165,7 @@
   cursor: pointer;
   transition: all 0.5s ease;
   margin: 1rem auto;
-  width: 16rem;
+  width: auto;
   height: 15.5rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   word-break: break-all;
@@ -180,7 +184,15 @@
     text-decoration: none;
     position: absolute;
     bottom: 1rem;
+    color: #ccc;
   }
+}
+
+.colorPalette {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .content:hover {
@@ -236,21 +248,26 @@
       font-size: 1.5rem;
     }
   }
+
+  .modal-content {
+    #btn_submit {
+      font-size: 0.9rem;
+      padding: 0.6rem 1.1rem;
+      bottom: 0.6rem;
+    }
+  }
 }
 
 /* --------------------------- */
 
 @media (max-width: 768px) {
-  .content {
-    width: auto;
-  }
-
   #open-button {
-    position: absolute;
-    right: 2rem;
-    top: 3rem;
-    padding: 0.55rem 1.5rem;
+    position: fixed !important;
+    right: 1rem;
+    top: 84.5vh;
+    padding: 0.45rem 1.2rem;
     font-size: 1.2rem;
+    z-index: 5;
   }
 
   .modal-content {
@@ -283,6 +300,7 @@
     #btn_submit {
       font-size: 0.9rem;
       padding: 0.6rem 1.1rem;
+      bottom: 1rem;
     }
   }
 }
